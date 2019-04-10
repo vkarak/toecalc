@@ -38,6 +38,12 @@ def calc_toe_dist(toe_angle, radius):
     return radius * math.tan(math.radians(toe_angle))
 
 
+def convert_angle(angle):
+    degrees = int(angle)
+    minutes = round((abs(angle) - abs(degrees))*60)
+    return (degrees, minutes)
+
+
 def usage():
     printout('Usage: %s {d|a}=TOE TIRE_SIZE' % sys.argv[0])
     printout('   Example: %s d=-1.0 195/55/15' % sys.argv[0])
@@ -118,15 +124,15 @@ if __name__ == '__main__':
                  (sys.argv[0], tire_arg))
         sys.exit(1)
 
-    if toe_dist:
+    if toe_dist is not None:
         toe_angle = calc_toe_angle(toe_dist, tire.radius)
-    elif toe_angle:
+    elif toe_angle is not None:
         toe_dist = calc_toe_dist(toe_angle, tire.radius)
 
+    # Convert toe angle to deg/min
     printout('Toe information:')
     printout('    Tire size:', tire)
     printout('    Toe (dist): %.2fmm' % toe_dist)
-    printout('    Toe (angle): %.2f° (%d°%d΄)' % (
-        toe_angle, int(toe_angle), round((toe_angle - int(toe_angle))*60., 2))
-    )
+    printout('    Toe (angle): %.2f° (%d°%02d΄)' %
+             (toe_angle, *convert_angle(toe_angle)))
     sys.exit(0)
