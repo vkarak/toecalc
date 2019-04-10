@@ -14,7 +14,7 @@ A simple command-line toe angle to distance converter.
 Toe information:
     Tire size: 195/55/15
     Toe (dist): -1.00mm
-    Toe (angle): -0.19° (0°-11΄)
+    Toe (angle): -0.19° (0°12΄)
 ```
 
 - Distance argument is in `mm`.
@@ -30,7 +30,7 @@ Toe information:
 Toe information:
     Tire size: 195/55/15
     Toe (dist): -0.52mm
-    Toe (angle): -0.10° (0°-6΄)
+    Toe (angle): -0.10° (0°06΄)
 ```
 
 - Angle argument may be either in decimal format as above or in `dd:mm` as in the following example:
@@ -43,7 +43,8 @@ Toe information:
 Toe information:
     Tire size: 195/55/15
     Toe (dist): -0.87mm
-    Toe (angle): -0.17° (0°-10΄)
+    Toe (angle): -0.17° (0°10΄)
 ```
 
 - Positive values denote toe-in, negative values denote toe-out
+- Units are in metric system only
