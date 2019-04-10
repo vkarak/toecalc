@@ -84,6 +84,11 @@ if __name__ == '__main__':
                 if fraction < 0:
                     raise ValueError
 
+                if fraction >= 1:
+                    printerr('%s: angle fraction in minutes may not exceed 59' %
+                             sys.argv[0])
+                    sys.exit(1)
+
                 toe_angle = int(toe_deg)
                 if toe_angle < 0:
                     toe_angle -= fraction
